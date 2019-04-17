@@ -1,6 +1,18 @@
 const express = require('express');
-
+const requireDir = require('require-dir');
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 const app = express();
+
+
+app.use( bodyParser.urlencoded({ extended: false }) );
+app.use(bodyParser.json());
+
+requireDir('./src/models');
+
+
+mongoose.connect('mongodb://localhost:27017/myTwitter', { useNewUrlParser: true });
+
 
 app.use('/api', require('./src/routes'));
 
