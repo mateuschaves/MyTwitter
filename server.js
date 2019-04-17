@@ -11,8 +11,7 @@ app.use(bodyParser.json());
 requireDir('./src/models');
 
 
-mongoose.connect('mongodb://localhost:27017/myTwitter', { useNewUrlParser: true });
-
+mongoose.connect('mongodb://localhost:27017/dale', { useNewUrlParser: true });
 
 app.use('/api', require('./src/routes'));
 
