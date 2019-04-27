@@ -47,6 +47,20 @@ module.exports = {
 
         return res.status(200).json(user.tweets.id(req.params.id));
 
+    },
+
+    async update(req, res){
+
+        const id = req.userId;
+        
+        const user = await User.findById(id);
+
+        user.tweets.id(req.params.id).content = req.body.content;
+
+        await user.save();
+
+        return res.status(200).json(user.tweets.id(req.params.id));
+
     }
 
 }

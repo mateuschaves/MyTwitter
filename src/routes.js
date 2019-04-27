@@ -14,5 +14,6 @@ routes.get('/me', verifyToken, UserController.me);
 routes.post('/tweet', verifyToken, TweetController.tweet);
 routes.get('/tweet/like/:id', verifyToken, TweetController.like);
 routes.get('/tweet/retweet/:id', verifyToken, TweetController.retweet);
+routes.put('/tweet/update/:id', verifyToken, TweetController.update);
 
 module.exports = routes;
