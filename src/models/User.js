@@ -5,7 +5,22 @@ const UserSchema = new mongoose.Schema({
     name: String,
     username: String,
     email: String,
-    password: String
+    password: String,
+    tweets: [{
+        content: String,
+        retweets: {
+            type: Number,
+            default: 0
+        },
+        likes: {
+            type: Number,
+            default: 0
+        },
+        createdAt: {
+            type: Date,
+            default: Date.now
+        }
+    }]
 });
 
 UserSchema.pre('save', async function(next){

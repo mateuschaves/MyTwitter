@@ -9,8 +9,6 @@ module.exports = {
     async register(req, res){
         await User.create(req.body);   
         
-        console.log(req.body);
-        
         const users = await User.find();
         res.status(201).json(users);
     },
@@ -44,7 +42,7 @@ module.exports = {
     },
 
     async me(req, res){
-        const user = User.findById(req.params.id);
-        console.log(user);
+        const user = await User.findById(req.userId);
+        res.status(200).json(user);
     }
 }

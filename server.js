@@ -10,8 +10,7 @@ app.use(bodyParser.json());
 
 requireDir('./src/models');
 
-
-mongoose.connect('mongodb://localhost:27017/dale', { useNewUrlParser: true });
+mongoose.connect('mongodb+srv://borave:123@cluster0-ubfev.mongodb.net/test?retryWrites=true', { useNewUrlParser: true });
 
 app.use('/api', require('./src/routes'));
 
